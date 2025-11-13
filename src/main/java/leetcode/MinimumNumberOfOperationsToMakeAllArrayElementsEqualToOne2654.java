@@ -2,6 +2,7 @@ package leetcode;
 
 /**
  * <a href="https://leetcode.com/problems/minimum-number-of-operations-to-make-all-array-elements-equal-to-1/description/">2654. Minimum Number of Operations to Make All Array Elements Equal to 1</a>
+ * <br>
  * NOTE: find minimal sub-array that can have gcd 1
  */
 public class MinimumNumberOfOperationsToMakeAllArrayElementsEqualToOne2654 {
