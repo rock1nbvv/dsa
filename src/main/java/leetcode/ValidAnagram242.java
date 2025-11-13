@@ -1,9 +1,6 @@
 package leetcode;
 
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Stack;
 
 /**
  * <a href="https://leetcode.com/problems/valid-anagram/description/">242. Valid Anagram</a><br>
@@ -34,8 +31,8 @@ public class ValidAnagram242 {
         }
         int[] freq = new int[26];
         for (int i = 0; i < s.length(); i++) {
-            freq[s.charAt(i)-'a']++;
-            freq[t.charAt(i)-'a']--;
+            freq[s.charAt(i) - 'a']++;
+            freq[t.charAt(i) - 'a']--;
         }
         for (int c : freq) {
             if (c != 0) {
