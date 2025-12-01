@@ -69,12 +69,6 @@ public class QuickSort {
         }
     }
 
-    private static void swap(int[] array, int i, int j) {
-        int temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
-    }
-
     static int pivotMedianOfThree(int[] array, int low, int high) {
         int a = array[low];
         int b = array[(high - low) / 2];
@@ -83,17 +77,17 @@ public class QuickSort {
             if (b < c) {
                 return b;
             }
-            return a < c ? c : a;
+            return Math.max(a, c);
         } else {
             if (a < c) {
                 return a;
             }
-            return b < c ? c : b;
+            return Math.max(b, c);
         }
     }
 
     /**
-     * <h4>Lomuto Partition – Steps</h4>
+     * <h4>Lomuto Partition Steps</h4>
      * <ol>
      *     <li>Select pivot as {@code arr[high]}</li>
      *     <li>Initialize index {@code i = low - 1}</li>
@@ -115,10 +109,14 @@ public class QuickSort {
             for (int j = low; j < high; j++) {
                 if (array[j] <= p) {
                     i++;
-                    swap(array, i, j);
+                    int temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;
                 }
             }
-            swap(array, i + 1, high);
+            int temp = array[i + 1];
+            array[i + 1] = array[high];
+            array[high] = temp;
             return i + 1;
         }
 
@@ -132,7 +130,7 @@ public class QuickSort {
     }
 
     /**
-     * <h4>Hoare Partition – Steps</h4>
+     * <h4>Hoare Partition Steps</h4>
      * <ol>
      *     <li>Select pivot (typically random or median-of-three)</li>
      *     <li>Initialize two indexes: {@code i = low - 1}, {@code j = high + 1}</li>
@@ -164,7 +162,9 @@ public class QuickSort {
                 if (i >= j) {
                     return j;
                 }
-                swap(array, i, j);
+                int temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
             }
         }
 
